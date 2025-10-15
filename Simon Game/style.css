@@ -3,24 +3,107 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 3rem;
-    line-height: 60px;
-}
-
 .container {
     display: block;
     width: 50%;
     margin: auto;
 }
 
-.btn {
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    border-radius: 20%;
-    border: 5px solid white;
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+        margin: 1rem 0;
+    }
+
+    .btn {
+        width: 80px;
+        height: 80px;
+        margin: 6px;
+        border-radius: 20%;
+        border: 5px solid white;
+    }
+
+    #start-game,
+    #restart-game {
+        width: 100px;
+        height: 30px;
+        margin: 10px;
+        background-color: white;
+        border: 5px solid white;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .btn-box {
+        height: 3rem;
+    }
 }
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .btn {
+        width: 120px;
+        height: 120px;
+        margin: 8px;
+        border-radius: 20%;
+        border: 5px solid white;
+    }
+
+    #start-game,
+    #restart-game {
+        width: 100px;
+        height: 30px;
+        margin: 10px;
+        background-color: white;
+        border: 5px solid white;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .btn-box {
+        height: 4rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 3rem;
+        line-height: 60px;
+    }
+
+    .btn {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        border-radius: 20%;
+        border: 5px solid white;
+    }
+
+    #start-game,
+    #restart-game {
+        width: 120px;
+        height: 50px;
+        margin: 10px;
+        background-color: white;
+        border: 5px solid white;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .btn-box {
+        height: 5rem;
+    }
+}
+
+
 
 .green {
     background-color: lightgreen;
@@ -53,30 +136,4 @@ h1 {
 
 .game-over {
     background-color: red;
-}
-
-#start-game {
-    width: 120px;
-    height: 50px;
-    margin: 10px;
-    background-color: white;
-    border: 5px solid white;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#restart-game {
-    width: 120px;
-    height: 50px;
-    margin: 10px;
-    background-color: white;
-    border: 5px solid white;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.btn-box {
-    height: 5rem;
 }
