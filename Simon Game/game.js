@@ -5,9 +5,12 @@ let playerChooseColours = [];
 let level = 0;
 let started = false;
 
-$(document).click(function () {
+$("#restart-game").hide();
+
+$("#start-game").click(function () {
     if (!started) {
         $(".title").text(`level ${level}`);
+        $("#start-game").fadeOut();
         gameLevel();
         started = true;
     }
@@ -58,7 +61,7 @@ function checkColour(checkBtnColour) {
     } else {
         playSound("wrong");
         $("body").addClass("game-over");
-        $(".title").text(`請重新開始 !`);
+        $(".title").text(`請點擊按鈕重新開始 !`);
         setTimeout(x => $("body").removeClass("game-over"), 500);
         gameOver();
     }
@@ -68,4 +71,15 @@ function gameOver() {
     started = false;
     level = 0;
     buttonChooseColours = [];
+
+    $("#restart-game").fadeIn();
+    $("#restart-game").click(function () {
+        if (!started) {
+            $(".title").text(`level ${level}`);
+            $("#start-game").fadeOut();
+            started = true;
+            gameLevel();
+            $("#restart-game").fadeOut();
+        }
+    });
 }

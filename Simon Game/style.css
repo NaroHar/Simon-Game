@@ -5,6 +5,7 @@ body {
 
 h1 {
     font-size: 3rem;
+    line-height: 60px;
 }
 
 .container {
@@ -52,4 +53,30 @@ h1 {
 
 .game-over {
     background-color: red;
+}
+
+#start-game {
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#restart-game {
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-box {
+    height: 5rem;
 }
