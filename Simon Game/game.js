@@ -22,13 +22,22 @@ function gameLevel() {
     level++;
     $(".title").text(`level ${level}`);
 
-    let randomChoose = Math.floor(Math.random() * 6);
+    buttonChooseColours.forEach((colour, i) => {
+        setTimeout(() => {
+            playSound(colour);
+            animatePress(colour);
+        }, 500 * i)
+    });
+
+    let randomChoose = Math.floor(Math.random() * buttonColour.length);
     let randomColour = buttonColour[randomChoose];
 
     buttonChooseColours.push(randomColour);
 
-    playSound(randomColour);
-    animatePress(randomColour);
+    setTimeout(() => {
+        playSound(randomColour);
+        animatePress(randomColour);
+    }, 500 * (buttonChooseColours.length - 1));
 }
 
 
