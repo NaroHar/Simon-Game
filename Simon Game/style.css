@@ -49,3 +49,7 @@ h1 {
     background-color: gray;
     box-shadow: 0 0 20px white;
 }
+
+.game-over {
+    background-color: red;
+}

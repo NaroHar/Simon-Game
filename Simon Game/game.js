@@ -1,5 +1,6 @@
 const buttonColour = ["green", "red", "purple", "yellow", "blue", "orange"];
-
+let buttonChooseColours = [];
+let playerChooseColours = [];
 
 let level = 0;
 let started = false;
@@ -7,14 +8,21 @@ let started = false;
 $(document).click(function () {
     if (!started) {
         $(".title").text(`level ${level}`);
-        startGame();
+        gameLevel();
+        started = true;
     }
 });
 
 
-function startGame() {
+function gameLevel() {
+    playerChooseColours = [];
+    level++;
+    $(".title").text(`level ${level}`);
+
     let randomChoose = Math.floor(Math.random() * 6);
     let randomColour = buttonColour[randomChoose];
+
+    buttonChooseColours.push(randomColour);
 
     playSound(randomColour);
     animatePress(randomColour);
@@ -22,10 +30,14 @@ function startGame() {
 
 
 $(".btn").click(function () {
+    if (!started) return;
     let btnColour = this.id;
 
     playSound(btnColour);
     animatePress(btnColour);
+    playerChooseColours.push(btnColour);
+
+    checkColour(playerChooseColours.length - 1);
 });
 
 function playSound(btnSound) {
@@ -36,4 +48,24 @@ function playSound(btnSound) {
 function animatePress(btnAnimate) {
     $(`#${btnAnimate}`).addClass("pressed");
     setTimeout(() => $(`#${btnAnimate}`).removeClass("pressed"), 200);
+}
+
+function checkColour(checkBtnColour) {
+    if (playerChooseColours[checkBtnColour] === buttonChooseColours[checkBtnColour]) {
+        if (playerChooseColours.length === buttonChooseColours.length) {
+            setTimeout(x => gameLevel(), 1000);
+        }
+    } else {
+        playSound("wrong");
+        $("body").addClass("game-over");
+        $(".title").text(`請重新開始 !`);
+        setTimeout(x => $("body").removeClass("game-over"), 500);
+        gameOver();
+    }
+}
+
+function gameOver() {
+    started = false;
+    level = 0;
+    buttonChooseColours = [];
 }
