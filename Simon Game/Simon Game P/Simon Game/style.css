@@ -44,3 +44,8 @@ h1 {
 .orange {
     background-color: orange;
 }
+
+.pressed {
+    background-color: gray;
+    box-shadow: 0 0 20px white;
+}
