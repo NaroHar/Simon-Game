@@ -11,7 +11,7 @@ $("#start-game").click(function () {
     if (!started) {
         $(".title").text(`level ${level}`);
         $("#start-game").fadeOut();
-        gameLevel();
+        setTimeout(x => gameLevel(), 500);
         started = true;
     }
 });
@@ -87,7 +87,7 @@ function gameOver() {
             $(".title").text(`level ${level}`);
             $("#start-game").fadeOut();
             started = true;
-            gameLevel();
+            setTimeout(x => gameLevel(), 500);
             $("#restart-game").fadeOut();
         }
     });
